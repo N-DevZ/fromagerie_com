@@ -1,21 +1,9 @@
 # models.py
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Index, Numeric, Float
 from sqlalchemy.orm import relationship
+from sqlalchemy.testing.schema import Table
+
 from database import Base
-
-class Departement(Base):
-    __tablename__ = "t_dept"
-    code_dept = Column(String(2), primary_key=True)
-    nom_dept = Column(String(50), default=None)
-    ordre_aff_dept = Column(Integer, default=0)
-
-class Commune(Base):
-    __tablename__ = "t_communes"
-    id = Column(Integer, primary_key=True)
-    dep = Column(String(2), ForeignKey('t_dept.code_dept'))
-    cp = Column(String(5), default=None)
-    ville = Column(String(50), default=None)
-    __table_args__ = (Index('commune_index', "dep", "cp", "ville"),)
 
 class Client(Base):
     __tablename__ = "t_client"
@@ -26,11 +14,10 @@ class Client(Base):
     adresse1cli = Column(String(50), default=None)
     adresse2cli = Column(String(50), default=None)
     adresse3cli = Column(String(50), default=None)
-    villecli_id = Column(Integer, ForeignKey('t_communes.id'))
+    villecli = Column(String(50), default=None)
+    cdepost = Column(Integer, default=0)
     telcli = Column(String(10), default=None)
     emailcli = Column(String(255), default=None)
-    portcli = Column(String(10), default=None)
-    newsletter = Column(Integer)
 
 class Commande(Base):
     __tablename__ = "t_entcde"
@@ -45,69 +32,14 @@ class Commande(Base):
     cdeComt = Column(String(255), default=None)
     barchive = Column(Integer, default=0)
     bstock = Column(Integer, default=0)
+    codeobjet = Column(Integer, ForeignKey('t_objets.codobj'))
     __table_args__ = (Index('commmande_index', "cdeComt", "codcli"),)
-
-class Conditionnement(Base):
-    __tablename__ = "t_conditionnement"
-    idcondit = Column(Integer, primary_key=True)
-    description = Column(String(50))
-    objetconds = relationship("ObjetCond", back_populates="condit")
-
 class Objet(Base):
     __tablename__ = "t_objets"
     codobj = Column(Integer, primary_key=True)
     designation = Column(String(50), default=None)
     poidsobj = Column(Numeric, default=0.0000)
     points = Column(Integer, default=0)
-    objetconds = relationship("ObjetCond", back_populates="objets")
-
-class ObjetCond(Base):
-    __tablename__ = "t_rel_cond"
-    idrelcond = Column(Integer, primary_key=True, index=True)
-    qteobjdeb = Column(Integer, default=0)
-    qteobjfin = Column(Integer, default=0)
-    codobj = Column(Integer, ForeignKey('t_objets.codobj'))
-    codcond = Column(Integer, ForeignKey('t_conditionnement.idcondit'))
-    objets = relationship("Objet", back_populates='objetconds')
-    condit = relationship("Conditionnement", back_populates='objetconds')
-
-class Detail(Base):
-    __tablename__ = "t_dtlcode"
-    id = Column(Integer, primary_key=True)
-    codcde = Column(Integer, ForeignKey('t_entcde.codcde'), index=True)
-    qte = Column(Integer, default=1)
-    colis = Column(Integer, default=1)
-    commentaire = Column(String(100), default=None)
-
-class DetailObjet(Base):
-    __tablename__ = "t_dtlcode_codobj"
-    id = Column(Integer, primary_key=True)
-    detail_id = Column(Integer, ForeignKey('t_dtlcode.id'))
-    objet_id = Column(Integer, ForeignKey('t_objet.codobj'))
-
-class Enseigne(Base):
-    __tablename__ = "t_enseigne"
-    id_enseigne = Column(Integer, primary_key=True)
-    lb_enseigne = Column(String(50), default=None)
-    ville_enseigne = Column(String(50), default=None)
-    dept_enseigne = Column(Integer, default=0)
-
-class Poids(Base):
-    __tablename__ = "t_poids"
-    id = Column(Integer, primary_key=True)
-    valmin = Column(Numeric, default=0)
-    valtimbre = Column(Numeric, default=0)
-
-class Vignette(Base):
-    __tablename__ = "t_poidsv"
-    id = Column(Integer, primary_key=True)
-    valmin = Column(Numeric, default=0)
-    valtimbre = Column(Numeric, default=0)
-
-class Role(Base):
-    __tablename__ = "t_role"
-    codrole = Column(Integer, primary_key=True)
-    librole = Column(String(25), default=None)
 
 class Utilisateur(Base):
     __tablename__ = "t_utilisateur"
@@ -117,9 +49,3 @@ class Utilisateur(Base):
     username = Column(String(50), default=None)
     couleur_fond_utilisateur = Column(Integer, default=0)
     date_insc_utilisateur = Column(Date)
-
-class RoleUtilisateur(Base):
-    __tablename__ = "t_utilisateur_role"
-    id = Column(Integer, primary_key=True)
-    utilisateur_id = Column(Integer, ForeignKey('t_utilisateur.code_utilisateur'))
-    role_id = Column(Integer, ForeignKey('t_role.codrole'))

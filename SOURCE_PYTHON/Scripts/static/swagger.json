@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API des utilisateurs, des clients et des objets",
+        "title": "API des utilisateurs, des clients, des commandes et des objets",
         "version": "1.0.0"
     },
     "paths": {
@@ -250,25 +250,67 @@
                     },
                     "adresse3cli": {
                         "type": "string"
+                    },
+                    "villecli": {
+                        "type": "string"
+                    },
+                    "cdepost": {
+                        "type": "integer"
+                    },
+                    "telcli": {
+                        "type": "string"
+                    },
+                    "emailcli": {
+                        "type": "string"
                     }
                 }
             },
             "Commande": {
                 "type": "object",
                 "properties": {
-                    "codcmd": {
+                    "codcde": {
                         "type": "integer"
                     },
-                    "datecmd": {
+                    "datcde": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date"
                     },
                     "codcli": {
                         "type": "integer"
                     },
-                    "totalcmd": {
+                    "timbrecli": {
+                        "type": "number"},
+                    "timbrecde": {
                         "type": "number",
                         "format": "float"
+                    },
+                    "nbcolis": {
+                        "type": "integer"
+                    },
+                    "cheqcli": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "idcondit": {
+                        "type": "integer"
+                    },
+                    "cdeComt": {
+                        "type": "string"
+                    },
+                    "barchive": {
+                        "type": "integer"
+                    },
+                    "bstock": {
+                        "type": "integer"
+                    },
+                    "codeobjet": {
+                        "type": "integer"
+                    },
+                    "objets": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Objet"
+                        }
                     }
                 }
             },
@@ -293,3 +335,4 @@
         }
     }
 }
+

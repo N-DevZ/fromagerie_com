@@ -2,8 +2,8 @@ from MySQLdb import IntegrityError
 from flask import Flask, request, jsonify
 from flask_swagger_ui import get_swaggerui_blueprint
 
+from SOURCE_PYTHON.Scripts.models import Utilisateur, Client, Commande, Objet
 from database import SessionLocal, Base, engine
-from models import Utilisateur, Client, Commande, Objet
 from datetime import datetime
 
 app = Flask(__name__)
@@ -70,11 +70,10 @@ def get_clients():
         'adresse1cli': client.adresse1cli,
         'adresse2cli': client.adresse2cli,
         'adresse3cli': client.adresse3cli,
-        'villecli_id': client.villecli_id,
+        'villecli': client.villecli,
+        'cdepost': client.cdepost,
         'telcli': client.telcli,
         'emailcli': client.emailcli,
-        'portcli': client.portcli,
-        'newsletter': client.newsletter
     } for client in clients])
 
 # Route pour ajouter un nouveau client
@@ -88,11 +87,10 @@ def ajouter_client():
         adresse1cli=data['adresse1cli'],
         adresse2cli=data['adresse2cli'],
         adresse3cli=data['adresse3cli'],
-        villecli_id=data['villecli_id'],
+        villecli=data['villecli'],
+        cdepost=data['cdepost'],
         telcli=data['telcli'],
         emailcli=data['emailcli'],
-        portcli=data['portcli'],
-        newsletter=data['newsletter']
     )
     session = request.db  # Utilisez la session associée à la requête
     session.add(nouveau_client)
@@ -101,7 +99,7 @@ def ajouter_client():
 
 @app.route('/commandes', methods=['GET'])
 def get_commandes():
-    session = request.db  # Utilisez la session associée à la requête
+    session = request.db
     commandes = session.query(Commande).all()
     return jsonify([{
         'codcde': commande.codcde,
@@ -114,7 +112,8 @@ def get_commandes():
         'idcondit': commande.idcondit,
         'cdeComt': commande.cdeComt,
         'barchive': commande.barchive,
-        'bstock': commande.bstock
+        'bstock': commande.bstock,
+        'codeobjet': commande.codeobjet,
     } for commande in commandes])
 
 # Route pour ajouter une nouvelle commande
@@ -132,16 +131,17 @@ def ajouter_commande():
         idcondit=int(data['idcondit']),
         cdeComt=data.get('cdeComt'),
         barchive=int(data['barchive']),
-        bstock=int(data['bstock'])
+        bstock=int(data['bstock']),
+        codeobjet=int(data['codeobjet'])
     )
-    session = request.db  # Utilisez la session associée à la requête
+    session = request.db
     session.add(nouvelle_commande)
     session.commit()
     return jsonify({'message': 'Commande ajoutée avec succès'}), 201
 
 @app.route('/clients/<int:codcli>/commandes', methods=['GET'])
 def get_commandes_par_client(codcli):
-    session = request.db  # Utilisez la session associée à la requête
+    session = request.db
     commandes = session.query(Commande).filter_by(codcli=codcli).all()
     if not commandes:
         return jsonify({'message': 'Aucune commande trouvée pour ce client'}), 404
@@ -157,8 +157,10 @@ def get_commandes_par_client(codcli):
         'idcondit': commande.idcondit,
         'cdeComt': commande.cdeComt,
         'barchive': commande.barchive,
-        'bstock': commande.bstock
+        'bstock': commande.bstock,
+        'codeobjet': commande.codeobjet,
     } for commande in commandes])
+
 
 @app.route('/objets', methods=['GET'])
 def get_objets():
@@ -171,7 +173,6 @@ def get_objets():
         'points': objet.points
     } for objet in objets])
 
-# Route to add a new object
 @app.route('/objets', methods=['POST'])
 def ajouter_objet():
     data = request.json
@@ -189,5 +190,9 @@ def ajouter_objet():
         session.rollback()
         return jsonify({'message': 'Erreur lors de l\'ajout de l\'objet'}), 400
 
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
