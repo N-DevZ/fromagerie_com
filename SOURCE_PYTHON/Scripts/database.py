@@ -2,6 +2,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import Session
 
 # URL de connexion à la base de données
 SQLALCHEMY_DATABASE_URL = "mysql://new_user:new_password@localhost/fromagerie_com"

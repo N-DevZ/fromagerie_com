@@ -1,0 +1,295 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API des utilisateurs, des clients et des objets",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/utilisateurs": {
+            "get": {
+                "summary": "Obtenir la liste des utilisateurs",
+                "operationId": "getUtilisateurs",
+                "responses": {
+                    "200": {
+                        "description": "Liste des utilisateurs",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Utilisateur"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Ajouter un nouvel utilisateur",
+                "operationId": "ajouterUtilisateur",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Utilisateur"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Utilisateur créé avec succès"
+                    }
+                }
+            }
+        },
+        "/clients": {
+            "get": {
+                "summary": "Obtenir la liste des clients",
+                "operationId": "getClients",
+                "responses": {
+                    "200": {
+                        "description": "Liste des clients",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Client"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Ajouter un nouveau client",
+                "operationId": "ajouterClient",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Client"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Client créé avec succès"
+                    }
+                }
+            }
+        },
+        "/commandes": {
+            "get": {
+                "summary": "Obtenir la liste des commandes",
+                "operationId": "getCommandes",
+                "responses": {
+                    "200": {
+                        "description": "Liste des commandes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Commande"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Ajouter une nouvelle commande",
+                "operationId": "ajouterCommande",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Commande"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Commande créée avec succès"
+                    }
+                }
+            }
+        },
+        "/clients/{codcli}/commandes": {
+            "get": {
+                "summary": "Obtenir les commandes par client",
+                "operationId": "getCommandesParClient",
+                "parameters": [
+                    {
+                        "name": "codcli",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Code du client"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Liste des commandes pour un client",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Commande"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Aucune commande trouvée pour ce client"
+                    }
+                }
+            }
+        },
+        "/objets": {
+            "get": {
+                "summary": "Obtenir la liste des objets",
+                "operationId": "getObjets",
+                "responses": {
+                    "200": {
+                        "description": "Liste des objets",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Objet"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Ajouter un nouvel objet",
+                "operationId": "ajouterObjet",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Objet"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Objet créé avec succès"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Utilisateur": {
+                "type": "object",
+                "properties": {
+                    "code_utilisateur": {
+                        "type": "integer"
+                    },
+                    "nom_utilisateur": {
+                        "type": "string"
+                    },
+                    "prenom_utilisateur": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "couleur_fond_utilisateur": {
+                        "type": "integer"
+                    },
+                    "date_insc_utilisateur": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            },
+            "Client": {
+                "type": "object",
+                "properties": {
+                    "codcli": {
+                        "type": "integer"
+                    },
+                    "genrecli": {
+                        "type": "string"
+                    },
+                    "nomcli": {
+                        "type": "string"
+                    },
+                    "prenomcli": {
+                        "type": "string"
+                    },
+                    "adresse1cli": {
+                        "type": "string"
+                    },
+                    "adresse2cli": {
+                        "type": "string"
+                    },
+                    "adresse3cli": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Commande": {
+                "type": "object",
+                "properties": {
+                    "codcmd": {
+                        "type": "integer"
+                    },
+                    "datecmd": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "codcli": {
+                        "type": "integer"
+                    },
+                    "totalcmd": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "Objet": {
+                "type": "object",
+                "properties": {
+                    "codobj": {
+                        "type": "integer"
+                    },
+                    "designation": {
+                        "type": "string"
+                    },
+                    "poidsobj": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "points": {
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    }
+}

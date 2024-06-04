@@ -50,36 +50,26 @@ class Commande(Base):
 class Conditionnement(Base):
     __tablename__ = "t_conditionnement"
     idcondit = Column(Integer, primary_key=True)
-    libcondit = Column(String(50), default=None)
-    poidscondit = Column(Integer)
-    prixcond = Column(Numeric, default=0.0000)
-    ordreimp = Column(Integer)
-    objets = relationship("ObjetCond", back_populates='condit')
+    description = Column(String(50))
+    objetconds = relationship("ObjetCond", back_populates="condit")
 
 class Objet(Base):
-    __tablename__ = "t_objet"
+    __tablename__ = "t_objets"
     codobj = Column(Integer, primary_key=True)
-    libobj = Column(String(50), default=None)
-    tailleobj = Column(String(50), default=None)
-    puobj = Column(Numeric, default=0.0000)
+    designation = Column(String(50), default=None)
     poidsobj = Column(Numeric, default=0.0000)
-    indispobj = Column(Integer, default=0)
-    o_imp = Column(Integer, default=0)
-    o_aff = Column(Integer, default=0)
-    o_cartp = Column(Integer, default=0)
     points = Column(Integer, default=0)
-    o_ordre_aff = Column(Integer, default=0)
-    condit = relationship("ObjetCond", back_populates='objets')
+    objetconds = relationship("ObjetCond", back_populates="objets")
 
 class ObjetCond(Base):
     __tablename__ = "t_rel_cond"
     idrelcond = Column(Integer, primary_key=True, index=True)
     qteobjdeb = Column(Integer, default=0)
     qteobjfin = Column(Integer, default=0)
-    codobj = Column(Integer, ForeignKey('t_objet.codobj'))
+    codobj = Column(Integer, ForeignKey('t_objets.codobj'))
     codcond = Column(Integer, ForeignKey('t_conditionnement.idcondit'))
-    objets = relationship("Objet", back_populates='condit')
-    condit = relationship("Conditionnement", back_populates='objets')
+    objets = relationship("Objet", back_populates='objetconds')
+    condit = relationship("Conditionnement", back_populates='objetconds')
 
 class Detail(Base):
     __tablename__ = "t_dtlcode"
