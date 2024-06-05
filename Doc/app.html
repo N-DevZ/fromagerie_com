@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module app</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">app</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cnatha%5Cdownloads%5Cfromagerie_com%5Csource_python%5Cscripts%5Capp.py">c:\users\natha\downloads\fromagerie_com\source_python\scripts\app.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-after_request"><strong>after_request</strong></a>(response)</dt><dd><span class="code">Ferme&nbsp;la&nbsp;session&nbsp;de&nbsp;base&nbsp;de&nbsp;données&nbsp;après&nbsp;que&nbsp;la&nbsp;requête&nbsp;a&nbsp;été&nbsp;traitée.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;response&nbsp;(flask.Response):&nbsp;L'objet&nbsp;réponse&nbsp;à&nbsp;envoyer&nbsp;au&nbsp;client.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;L'objet&nbsp;réponse&nbsp;à&nbsp;envoyer&nbsp;au&nbsp;client.</span></dd></dl>
+ <dl><dt><a name="-ajouter_client"><strong>ajouter_client</strong></a>()</dt><dd><span class="code">Ajoute&nbsp;un&nbsp;nouveau&nbsp;client.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;indiquant&nbsp;le&nbsp;succès&nbsp;ou&nbsp;l'échec&nbsp;de&nbsp;l'opération.</span></dd></dl>
+ <dl><dt><a name="-ajouter_commande"><strong>ajouter_commande</strong></a>()</dt><dd><span class="code">Ajoute&nbsp;une&nbsp;nouvelle&nbsp;commande.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;indiquant&nbsp;le&nbsp;succès&nbsp;ou&nbsp;l'échec&nbsp;de&nbsp;l'opération.</span></dd></dl>
+ <dl><dt><a name="-ajouter_conditionnement"><strong>ajouter_conditionnement</strong></a>()</dt><dd><span class="code">Ajoute&nbsp;un&nbsp;nouveau&nbsp;conditionnement.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;indiquant&nbsp;le&nbsp;succès&nbsp;ou&nbsp;l'échec&nbsp;de&nbsp;l'opération.</span></dd></dl>
+ <dl><dt><a name="-ajouter_objet"><strong>ajouter_objet</strong></a>()</dt><dd><span class="code">Ajoute&nbsp;un&nbsp;nouvel&nbsp;objet.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;indiquant&nbsp;le&nbsp;succès&nbsp;ou&nbsp;l'échec&nbsp;de&nbsp;l'opération.</span></dd></dl>
+ <dl><dt><a name="-ajouter_utilisateur"><strong>ajouter_utilisateur</strong></a>()</dt><dd><span class="code">Ajoute&nbsp;un&nbsp;nouvel&nbsp;utilisateur.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;indiquant&nbsp;le&nbsp;succès&nbsp;ou&nbsp;l'échec&nbsp;de&nbsp;l'opération.</span></dd></dl>
+ <dl><dt><a name="-before_request"><strong>before_request</strong></a>()</dt><dd><span class="code">Attache&nbsp;une&nbsp;nouvelle&nbsp;session&nbsp;de&nbsp;base&nbsp;de&nbsp;données&nbsp;à&nbsp;la&nbsp;requête&nbsp;avant&nbsp;qu'elle&nbsp;ne&nbsp;soit&nbsp;traitée.</span></dd></dl>
+ <dl><dt><a name="-get_clients"><strong>get_clients</strong></a>()</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;tous&nbsp;les&nbsp;clients.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;clients.</span></dd></dl>
+ <dl><dt><a name="-get_commandes"><strong>get_commandes</strong></a>()</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;toutes&nbsp;les&nbsp;commandes.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;commandes.</span></dd></dl>
+ <dl><dt><a name="-get_commandes_par_client"><strong>get_commandes_par_client</strong></a>(codcli)</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;commandes&nbsp;pour&nbsp;un&nbsp;client&nbsp;spécifique.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;codcli&nbsp;(int):&nbsp;Le&nbsp;code&nbsp;du&nbsp;client.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;commandes&nbsp;pour&nbsp;le&nbsp;client&nbsp;spécifié.</span></dd></dl>
+ <dl><dt><a name="-get_commandes_par_objet"><strong>get_commandes_par_objet</strong></a>(codeobjet)</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;commandes&nbsp;pour&nbsp;un&nbsp;objet&nbsp;spécifique.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;codeobjet&nbsp;(int):&nbsp;Le&nbsp;code&nbsp;de&nbsp;l'objet.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;commandes&nbsp;pour&nbsp;l'objet&nbsp;spécifié.</span></dd></dl>
+ <dl><dt><a name="-get_conditionnements"><strong>get_conditionnements</strong></a>()</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;tous&nbsp;les&nbsp;conditionnements.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;conditionnements.</span></dd></dl>
+ <dl><dt><a name="-get_conditionnements_par_objet"><strong>get_conditionnements_par_objet</strong></a>(codeobjet)</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;conditionnements&nbsp;pour&nbsp;un&nbsp;objet&nbsp;spécifique.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;codeobjet&nbsp;(int):&nbsp;Le&nbsp;code&nbsp;de&nbsp;l'objet.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;de&nbsp;conditionnements&nbsp;pour&nbsp;l'objet&nbsp;spécifié.</span></dd></dl>
+ <dl><dt><a name="-get_objets"><strong>get_objets</strong></a>()</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;tous&nbsp;les&nbsp;objets.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;d'objets.</span></dd></dl>
+ <dl><dt><a name="-get_utilisateurs"><strong>get_utilisateurs</strong></a>()</dt><dd><span class="code">Obtient&nbsp;une&nbsp;liste&nbsp;de&nbsp;tous&nbsp;les&nbsp;utilisateurs.<br>
+&nbsp;<br>
+Retourne:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;flask.Response:&nbsp;Réponse&nbsp;JSON&nbsp;contenant&nbsp;une&nbsp;liste&nbsp;d'utilisateurs.</span></dd></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>API_URL</strong> = '/static/swagger.json'<br>
+<strong>SWAGGER_URL</strong> = '/swagger'<br>
+<strong>SessionLocal</strong> = sessionmaker(class_='Session', autocommit=False,...rie_com), autoflush=False, expire_on_commit=True)<br>
+<strong>app</strong> = &lt;Flask 'app'&gt;<br>
+<strong>engine</strong> = Engine(mysql://new_user:***@localhost/fromagerie_com)<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>swaggerui_blueprint</strong> = &lt;Blueprint 'swagger_ui'&gt;</td></tr></table>
+</body></html>

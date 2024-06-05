@@ -1,4 +1,3 @@
-# models.py
 from sqlalchemy import Column, Integer, String, Date, ForeignKey, Index, Numeric, Float
 from sqlalchemy.orm import relationship
 from sqlalchemy.testing.schema import Table
@@ -6,6 +5,9 @@ from sqlalchemy.testing.schema import Table
 from database import Base
 
 class Client(Base):
+    """
+    Modèle représentant un client dans la base de données.
+    """
     __tablename__ = "t_client"
     codcli = Column(Integer, primary_key=True)
     genrecli = Column(String(8), default=None)
@@ -20,6 +22,9 @@ class Client(Base):
     emailcli = Column(String(255), default=None)
 
 class Commande(Base):
+    """
+    Modèle représentant une commande dans la base de données.
+    """
     __tablename__ = "t_entcde"
     codcde = Column(Integer, primary_key=True)
     datcde = Column(Date)
@@ -34,7 +39,11 @@ class Commande(Base):
     bstock = Column(Integer, default=0)
     codeobjet = Column(Integer, ForeignKey('t_objets.codobj'))
     __table_args__ = (Index('commmande_index', "cdeComt", "codcli"),)
+
 class Objet(Base):
+    """
+    Modèle représentant un objet dans la base de données.
+    """
     __tablename__ = "t_objets"
     codobj = Column(Integer, primary_key=True)
     designation = Column(String(50), default=None)
@@ -42,6 +51,9 @@ class Objet(Base):
     points = Column(Integer, default=0)
 
 class Utilisateur(Base):
+    """
+    Modèle représentant un utilisateur dans la base de données.
+    """
     __tablename__ = "t_utilisateur"
     code_utilisateur = Column(Integer, primary_key=True)
     nom_utilisateur = Column(String(50), default=None)
@@ -51,6 +63,9 @@ class Utilisateur(Base):
     date_insc_utilisateur = Column(Date)
 
 class Conditionnement(Base):
+    """
+    Modèle représentant un conditionnement dans la base de données.
+    """
     __tablename__ = "t_condits"
     idcondit = Column(Integer, primary_key=True)
     codeobjet = Column(Integer, ForeignKey('t_objets.codobj'))
