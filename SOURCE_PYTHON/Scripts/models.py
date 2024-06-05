@@ -49,3 +49,11 @@ class Utilisateur(Base):
     username = Column(String(50), default=None)
     couleur_fond_utilisateur = Column(Integer, default=0)
     date_insc_utilisateur = Column(Date)
+
+class Conditionnement(Base):
+    __tablename__ = "t_condits"
+    idcondit = Column(Integer, primary_key=True)
+    codeobjet = Column(Integer, ForeignKey('t_objets.codobj'))
+    quantite_min = Column(Integer)
+    quantite_max = Column(Integer)
+    modele = Column(String(50))

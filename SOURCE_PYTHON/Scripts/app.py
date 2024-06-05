@@ -2,7 +2,7 @@ from MySQLdb import IntegrityError
 from flask import Flask, request, jsonify
 from flask_swagger_ui import get_swaggerui_blueprint
 
-from SOURCE_PYTHON.Scripts.models import Utilisateur, Client, Commande, Objet
+from SOURCE_PYTHON.Scripts.models import Utilisateur, Client, Commande, Objet, Conditionnement
 from database import SessionLocal, Base, engine
 from datetime import datetime
 
@@ -10,13 +10,11 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 Base.metadata.create_all(bind=engine)
 
-# Configuration de Swagger
 SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
 swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL, config={'app_name': "API des utilisateurs"})
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
-# Middleware pour associer une session à chaque requête HTTP
 @app.before_request
 def before_request():
     request.db = SessionLocal()
@@ -191,7 +189,69 @@ def ajouter_objet():
         return jsonify({'message': 'Erreur lors de l\'ajout de l\'objet'}), 400
 
 
+@app.route('/objets/<int:codeobjet>/commandes', methods=['GET'])
+def get_commandes_par_objet(codeobjet):
+    session = request.db
+    commandes = session.query(Commande).filter_by(codeobjet=codeobjet).all()
+    if not commandes:
+        return jsonify({'message': 'Aucune commande trouvée pour cet objet'}), 404
 
+    return jsonify([{
+        'codcde': commande.codcde,
+        'datcde': commande.datcde.isoformat(),
+        'codcli': commande.codcli,
+        'timbrecli': commande.timbrecli,
+        'timbrecde': commande.timbrecde,
+        'nbcolis': commande.nbcolis,
+        'cheqcli': commande.cheqcli,
+        'idcondit': commande.idcondit,
+        'cdeComt': commande.cdeComt,
+        'barchive': commande.barchive,
+        'bstock': commande.bstock,
+        'codeobjet': commande.codeobjet,
+    } for commande in commandes])
+
+@app.route('/conditionnements', methods=['GET'])
+def get_conditionnements():
+    session = request.db
+    conditionnements = session.query(Conditionnement).all()
+    return jsonify([{
+        'idcondit': condit.idcondit,
+        'codeobjet': condit.codeobjet,
+        'quantite_min': condit.quantite_min,
+        'quantite_max': condit.quantite_max,
+        'modele': condit.modele,
+    } for condit in conditionnements])
+
+# Route pour ajouter un nouveau conditionnement
+@app.route('/conditionnements', methods=['POST'])
+def ajouter_conditionnement():
+    data = request.json
+    nouveau_conditionnement = Conditionnement(
+        codeobjet=data['codeobjet'],
+        quantite_min=data['quantite_min'],
+        quantite_max=data['quantite_max'],
+        modele=data['modele']
+    )
+    session = request.db
+    session.add(nouveau_conditionnement)
+    session.commit()
+    return jsonify({'message': 'Conditionnement ajouté avec succès'}), 201
+
+@app.route('/objets/<int:codeobjet>/conditionnements', methods=['GET'])
+def get_conditionnements_par_objet(codeobjet):
+    session = request.db
+    conditionnements = session.query(Conditionnement).filter_by(codeobjet=codeobjet).all()
+    if not conditionnements:
+        return jsonify({'message': 'Aucun conditionnement trouvé pour cet objet'}), 404
+
+    return jsonify([{
+        'idcondit': condit.idcondit,
+        'codeobjet': condit.codeobjet,
+        'quantite_min': condit.quantite_min,
+        'quantite_max': condit.quantite_max,
+        'modele': condit.modele
+    } for condit in conditionnements])
 
 if __name__ == '__main__':
     app.run(debug=True)

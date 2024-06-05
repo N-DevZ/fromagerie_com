@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API des utilisateurs, des clients, des commandes et des objets",
+        "title": "API des utilisateurs, des clients, des commandes, des objets et des conditionnements",
         "version": "1.0.0"
     },
     "paths": {
@@ -199,6 +199,116 @@
                     }
                 }
             }
+        },
+        "/objets/{codeobjet}/commandes": {
+            "get": {
+                "summary": "Obtenir les commandes par objet",
+                "operationId": "getCommandesParObjet",
+                "parameters": [
+                    {
+                        "name": "codeobjet",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Code de l'objet"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Liste des commandes pour un objet",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Commande"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Aucune commande trouvée pour cet objet"
+                    }
+                }
+            }
+        },
+        "/conditionnements": {
+            "get": {
+                "summary": "Obtenir la liste des conditionnements",
+                "operationId": "getConditionnements",
+                "responses": {
+                    "200": {
+                        "description": "Liste des conditionnements",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conditionnement"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Ajouter un nouveau conditionnement",
+                "operationId": "ajouterConditionnement",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Conditionnement"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Conditionnement ajouté avec succès"
+                    }
+                }
+            }
+        },
+        "/objets/{codeobjet}/conditionnements": {
+            "get": {
+                "summary": "Obtenir les conditionnements par objet",
+                "operationId": "getConditionnementsParObjet",
+                "parameters": [
+                    {
+                        "name": "codeobjet",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "description": "Code de l'objet"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Liste des conditionnements pour un objet",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Conditionnement"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Aucun conditionnement trouvé pour cet objet"
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -279,7 +389,8 @@
                         "type": "integer"
                     },
                     "timbrecli": {
-                        "type": "number"},
+                        "type": "number"
+                    },
                     "timbrecde": {
                         "type": "number",
                         "format": "float"
@@ -305,12 +416,6 @@
                     },
                     "codeobjet": {
                         "type": "integer"
-                    },
-                    "objets": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Objet"
-                        }
                     }
                 }
             },
@@ -331,8 +436,27 @@
                         "type": "integer"
                     }
                 }
+            },
+            "Conditionnement": {
+                "type": "object",
+                "properties": {
+                    "idcondit": {
+                        "type": "integer"
+                    },
+                    "codeobjet": {
+                        "type": "integer"
+                    },
+                    "quantite_min": {
+                        "type": "integer"
+                    },
+                    "quantite_max": {
+                        "type": "integer"
+                    },
+                    "modele": {
+                        "type": "string"
+                    }
+                }
             }
         }
     }
 }
-
