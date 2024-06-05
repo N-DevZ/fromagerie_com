@@ -1,0 +1,4 @@
+Flask==3.0.3
+flask_swagger_ui==4.11.1
+MySQL-python==1.2.5
+SQLAlchemy==2.0.30
