@@ -1,4 +1,4 @@
-# __++Projet : Développement d’une application informatique : cas d’étude Digicheese++__  
+# **++Projet : Développement d’une application informatique : cas d’étude Digicheese++**  
 ## **_Développement d’une API backend avec Python_**  
   
 ### Cahier des charges :  
