@@ -1,4 +1,4 @@
-# ++ Projet : Développement d’une application informatique : cas d’étude Digicheese ++
+# __Projet Développement d’une application informatique : cas d’étude Digicheese__
 ## **_Développement d’une API backend avec Python_**  
   
 ### Cahier des charges :  
@@ -10,4 +10,3 @@ Pour la base de données, nous avons utilisé MySql, ainsi que MariaDB et Beaver
 Nous avons utilisé le langage de programmation python pour la rédaction des scripts.  
 Enfin, pour la parti test nous nous sommes appuyés sur Katalon recorder.  
 
-**++mot++**
