@@ -24,8 +24,10 @@ De là chaqu'un peut mettre à jour en s'y connectant via GitBash depuis son pro
 Après avoir crée un espace sur Beaver depuis le terminale de commande de MariaDB, on connecte la base de données à notre projet en mentionnant son chemin dans le code python.
 On utilise ensuite le script python models.py, qui une fois executé, crée sur cette espace les 4 tables correspondant à leurs classes python respectives (depuis lesquelles sont définis leurs attributs).
 
-### Etape 3 :
+### Etape 3 installation et configuration des modules :
 
+Depuis le fichiers requirements.txt, on instal l'entiereté des modules sur python. On utilise SQLALCHEMY qui un ORM faisant communiquer la BDD et le Backend.
+Flask quant à lui est le framework utilisé pour interfacer différents modules (ici swagger) grace à son API.
 
 
 
