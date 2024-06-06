@@ -21,7 +21,7 @@ Enfin, pour la partie test nous nous sommes appuyés sur Katalon recorder.
 Après avoir créé un dossier conforme au attente de Diginamic, on génère une clé SSH qui y est associé.
 De là chaqu'un peut mettre à jour en s'y connectant via GitBash depuis son propre poste.
 
-### Etape 2 création de la base de donnée :
+### Etape 2 création de la base de données :
 
 Après avoir créé un espace sur Beaver depuis le terminale de commande de MariaDB, on connecte la base de données à notre projet en mentionnant son chemin dans le code python.
 On utilise ensuite le script python models.py, qui une fois executé, crée sur cette espace les 4 tables correspondant à leurs classes python respectives (depuis lesquelles sont définis leurs attributs).
