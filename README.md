@@ -29,6 +29,14 @@ On utilise ensuite le script python models.py, qui une fois executé, crée sur 
 Depuis le fichiers requirements.txt, on instal l'entiereté des modules sur python. On utilise SQLALCHEMY qui un ORM faisant communiquer la BDD et le Backend.
 Flask quant à lui est le framework utilisé pour interfacer différents modules (ici swagger) grace à son API.
 
+### Etape 4 programmation des requêtes HTTP en python :
+
+Déclaration des roots et de l'emplacement json. Création de fonction python permettant au  client de lancer des requêtes. Pour les requêtes plus spécifiques (ex: affiche la liste des commandes pour un client donné).
+
+### Etape 5 test fonctionnel avec swagger UI : 
+
+Test de requêtes et documentation swagger  
+
 
 
 
