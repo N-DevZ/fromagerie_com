@@ -18,7 +18,7 @@ De là chaqu'un peut mettre à jour en s'y connectant via GitBash depuis son pro
 
 ### Etape 2 création de la base de donnée :
 
-Après avoir crée un espace sur Beaver depuis le terminale de commande de MariaDB.
+Après avoir crée un espace sur Beaver depuis le terminale de commande de MariaDB, on utilise le script python qui une fois executé on crée sur cette espace les 4 tables
 
 
 
