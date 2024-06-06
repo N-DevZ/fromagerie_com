@@ -10,3 +10,15 @@ Pour la base de données, nous avons utilisé MySql, ainsi que MariaDB et Beaver
 Nous avons utilisé le langage de programmation python pour la rédaction des scripts.  
 Enfin, pour la parti test nous nous sommes appuyés sur Katalon recorder.  
 
+## **_Etapes :_**
+
+### Etape 1 mise en place du Github :
+Après avoir créer un dossier conforme au attente de Diginamic, on génère une clé SSH qui y est associé.
+De là chaqu'un peut mettre à jour en s'y connectant via GitBash depuis son propre poste.
+
+### Etape 2 création de la base de donnée :
+
+Après avoir crée un espace sur Beaver depuis le terminale de commande de MariaDB.
+
+
+
