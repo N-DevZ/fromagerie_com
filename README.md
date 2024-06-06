@@ -1,5 +1,5 @@
 # __Projet Développement d’une application informatique : cas d’étude Digicheese__
-## **_Développement d’une API backend avec Python_**  
+## **_Réalisation d’une API backend avec Python_**  
   
 ### Cahier des charges :  
 L’objectif du projet est de développer le backend d’une application web pour la fromagerie Digicheese. La solution doit permettre la liaison entre l’interface visuelle de l’application et le reste celle-ci en particulier ses bases de données.  
