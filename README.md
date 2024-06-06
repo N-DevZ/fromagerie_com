@@ -1,5 +1,7 @@
 # __Projet Développement d’une application informatique : cas d’étude Digicheese__
 ## **_Réalisation d’une API backend avec Python_**  
+
+![photo profil](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png)
   
 ### Cahier des charges :  
 
