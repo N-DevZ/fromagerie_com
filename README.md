@@ -9,3 +9,5 @@ Pour ce qui est de l’espace de collaboration, nous avons utilisé Github qui p
 Pour la base de données, nous avons utilisé MySql, ainsi que MariaDB et Beaver pour le stockage de celle-ci.  
 Nous avons utilisé le langage de programmation python pour la rédaction des scripts.  
 Enfin, pour la parti test nous nous sommes appuyés sur Katalon recorder.  
+
+**++mot++**
