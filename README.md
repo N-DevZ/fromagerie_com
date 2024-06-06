@@ -28,7 +28,7 @@ On utilise ensuite le script python models.py, qui une fois executé, crée sur 
 
 ### Etape 3 installation et configuration des modules :
 
-Depuis le fichiers requirements.txt, on instal l'entiereté des modules sur python. On utilise SQLALCHEMY qui un ORM faisant communiquer la BDD et le Backend.
+Depuis le fichiers requirements.txt, on installe l'entiereté des modules sur python. On utilise SQLALCHEMY qui un ORM faisant communiquer la BDD et le Backend.
 Flask quant à lui est le framework utilisé pour interfacer différents modules (ici swagger) grace à son API.
 
 ![](https://scontent-mrs2-1.xx.fbcdn.net/v/t1.15752-9/441623377_1209910386853686_7741098829471154113_n.png?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=P0IfmAtzbbMQ7kNvgGYf332&_nc_ht=scontent-mrs2-1.xx&oh=03_Q7cD1QGMMY-jeSSu2ftvXYIDNO8pMwCqderJsK9vH87hy9ZlZQ&oe=66893273)
@@ -41,9 +41,9 @@ Déclaration des roots et de l'emplacement json. Création de fonction python pe
 
 Test de requêtes et documentation swagger 
 
-### Étape 6 test driven development avec katalina recorder: 
+### Étape 6 test driven development avec katalon recorder: 
 
-Création d'une suite de tests regroupant des cas de tests par requetes et par entités
+Création d'une suite de tests regroupant des cas de tests par requêtes et par entités
 
 ### Étape 7 documentation technique avec pydoc :
 
