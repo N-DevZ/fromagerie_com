@@ -35,8 +35,16 @@ Déclaration des roots et de l'emplacement json. Création de fonction python pe
 
 ### Etape 5 test fonctionnel avec swagger UI : 
 
-Test de requêtes et documentation swagger  
+Test de requêtes et documentation swagger 
 
+### Étape 6 test driven development avec katalina recorder: 
+
+Création d'une suite de tests regroupant des cas de tests par requetes et par entités
+
+### Étape 7 documentation technique avec pydoc :
+
+Installation de pydoc et commande **python.exe -m pydoc -w app models database**
+permettant de générer une documentation HTML grâce aux docstrings dans le code Python 
 
 
 
