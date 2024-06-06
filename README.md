@@ -50,5 +50,9 @@ Création d'une suite de tests regroupant des cas de tests par requetes et par e
 Installation de pydoc et commande **python.exe -m pydoc -w app models database**
 permettant de générer une documentation HTML grâce aux docstrings dans le code Python 
 
+**_Hetiandro FERREIRA_**
+**_Nathan DEVOISE_**
+**_Assala SOUSSI_**
+**_Antoine FONTANILLE_**
 
 
