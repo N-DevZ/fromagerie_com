@@ -1,7 +1,7 @@
 # __Projet Développement d’une application informatique : cas d’étude Digicheese__
 ## **_Réalisation d’une API backend avec Python_**  
 
-![photo profil](https://scontent-mrs2-1.xx.fbcdn.net/v/t1.15752-9/441396104_1443074782979942_75931217175817883_n.png?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=8UgiHJPrdPsQ7kNvgGZSaib&_nc_ht=scontent-mrs2-1.xx&oh=03_Q7cD1QE5ikDJd3LH5OM0SA-7-dgzm8B39jQyqq6qHJHT93y9zQ&oe=6689148C) !(https://scontent-mrs2-2.xx.fbcdn.net/v/t1.15752-9/441377110_474134318314164_8759843846568836743_n.png?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=zJWxBXcGcUoQ7kNvgH-MLub&_nc_ht=scontent-mrs2-2.xx&oh=03_Q7cD1QGABG_r7MYbtk_q6_y7f3dLboLPdE5NlUKJ7de5JS521A&oe=66893557)
+![photo python](https://scontent-mrs2-1.xx.fbcdn.net/v/t1.15752-9/441396104_1443074782979942_75931217175817883_n.png?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=8UgiHJPrdPsQ7kNvgGZSaib&_nc_ht=scontent-mrs2-1.xx&oh=03_Q7cD1QE5ikDJd3LH5OM0SA-7-dgzm8B39jQyqq6qHJHT93y9zQ&oe=6689148C) ![photo](https://scontent-mrs2-2.xx.fbcdn.net/v/t1.15752-9/441377110_474134318314164_8759843846568836743_n.png?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=zJWxBXcGcUoQ7kNvgH-MLub&_nc_ht=scontent-mrs2-2.xx&oh=03_Q7cD1QGABG_r7MYbtk_q6_y7f3dLboLPdE5NlUKJ7de5JS521A&oe=66893557)
   
 ### Cahier des charges :  
 
